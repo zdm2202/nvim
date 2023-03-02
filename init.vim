@@ -51,6 +51,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 
+"terminal
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 " UI
 Plug 'folke/noice.nvim'
 
@@ -67,7 +70,7 @@ lua require('plugin/noice')
 lua require('plugin/nvim-treesitter')
 lua require('plugin/trouble')
 lua require('plugin/mason-installer')
-
+lua require('plugin/toggleterm')
 lua require('setting')
 colorscheme catppuccin-latte
 
