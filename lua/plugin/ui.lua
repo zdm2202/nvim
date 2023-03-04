@@ -195,3 +195,41 @@ require("noice").setup({
   ---@type NoiceFormatOptions
   format = {}, --- @see section on formatting
 })
+
+require("scrollbar").setup({
+	handle = {
+        text = " ",
+        color = nil,
+        color_nr = nil, -- cterm
+        highlight = "CursorColumn",
+        hide_if_all_visible = true, -- Hides handle if all lines are visible
+    },
+})
+
+require('dashboard').setup {
+	theme = 'hyper',
+	change_to_vcs_root = true,
+	config = {
+		header = [[                                                ]],
+		[[                                          _.oo. ]],
+		[[                  _.u[[/;:,.         .odMMMMMM' ]],
+		[[               .o888UU[[[/;:-.  .o@P^    MMM^   ]],
+		[[              oN88888UU[[[/;::-.        dP^     ]],
+		[[             dNMMNN888UU[[[/;:--.   .o@P^       ]],
+		[[            ,MMMMMMN888UU[[/;::-. o@^           ]],
+		[[            NNMMMNN888UU[[[/~.o@P^              ]],
+		[[            888888888UU[[[/o@^-..               ]],
+		[[           oI8888UU[[[/o@P^:--..                ]],
+		[[        .@^  YUU[[[/o@^;::---..                 ]],
+		[[      oMP     ^/o@P^;:::---..                   ]],
+		[[   .dMMM    .o@^ ^;::---...                     ]],
+	    [[  dMMMMMMM@^`       `^^^^                       ]],
+		[[ YMMMUP^                                        ]],
+		[[  ^^                                            ]],
+	    [[                                                ]],
+		week_header = {
+           enable = false,
+        },
+		packages = { enable = true },
+	}
+}

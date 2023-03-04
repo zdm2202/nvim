@@ -1,5 +1,6 @@
 " let g:plug_url_format='https://git::@hub.fastgit.org/%s.git'
 
+lua require('lazy')
 
 let g:plug_url_format='https://git::@hub.nuaa.cf/%s.git'
 
@@ -27,10 +28,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-
 " theme
 "Plug 'ellisonleao/gruvbox.nvim'
 "Plug 'Mofiqul/vscode.nvim'
@@ -56,6 +53,12 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 " UI
 Plug 'folke/noice.nvim'
+Plug 'petertriho/nvim-scrollbar'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'glepnir/dashboard-nvim'
+
 
 call plug#end()
 
@@ -66,11 +69,11 @@ lua require('plugin/lspkind')
 lua require('plugin/nvim-tree')
 lua require('plugin/lualine')
 lua require('plugin/bufferline')
-lua require('plugin/noice')
 lua require('plugin/nvim-treesitter')
 lua require('plugin/trouble')
 lua require('plugin/mason-installer')
 lua require('plugin/toggleterm')
+lua require('plugin/ui')
 lua require('setting')
 colorscheme catppuccin-latte
 
