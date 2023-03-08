@@ -1,5 +1,7 @@
-require('lazy').setup({
-
+require('lazy').setup("plugins", {
+    ui = {
+        border = "rounded"
+    }
 })
 
 require('config')
