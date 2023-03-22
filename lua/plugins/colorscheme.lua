@@ -1,38 +1,42 @@
+cmp_highlights = {
+    PmenuSel = { bg = "#fffaf3", fg = "NONE" },
+    Pmenu = { fg = "#575279", bg = "#dfdad9" },
+
+    CmpItemKindField = { fg = "#EED8DA", bg = "#d7827e" },
+    CmpItemKindProperty = { fg = "#EED8DA", bg = "#d7827e" },
+    CmpItemKindEvent = { fg = "#EED8DA", bg = "#d7827e" },
+
+    CmpItemKindText = { fg = "#C3E88D", bg = "#56949f" },
+    CmpItemKindEnum = { fg = "#C3E88D", bg = "#56949f" },
+    CmpItemKindKeyword = { fg = "#C3E88D", bg = "#56949f" },
+
+    CmpItemKindConstant = { fg = "#FFE082", bg = "#ea9d34" },
+    CmpItemKindConstructor = { fg = "#FFE082", bg = "#ea9d34" },
+    CmpItemKindReference = { fg = "#FFE082", bg = "#ea9d34" },
+
+    CmpItemKindFunction = { fg = "#EADFF0", bg = "#907aa9" },
+    CmpItemKindStruct = { fg = "#EADFF0", bg = "#907aa9" },
+    CmpItemKindClass = { fg = "#EADFF0", bg = "#907aa9" },
+    CmpItemKindModule = { fg = "#EADFF0", bg = "#907aa9" },
+    CmpItemKindOperator = { fg = "#EADFF0", bg = "#907aa9" },
+
+    CmpItemKindVariable = { fg = "#C5CDD9", bg = "#797593" },
+    CmpItemKindFile = { fg = "#C5CDD9", bg = "#797593" },
+
+    CmpItemKindUnit = { fg = "#F5EBD9", bg = "#ea9d34" },
+    CmpItemKindSnippet = { fg = "#F5EBD9", bg = "#ea9d34" },
+    CmpItemKindFolder = { fg = "#F5EBD9", bg = "#ea9d34" },
+
+    CmpItemKindMethod = { fg = "#DDE5F5", bg = "#6C8ED4" },
+    CmpItemKindValue = { fg = "#DDE5F5", bg = "#6C8ED4" },
+    CmpItemKindEnumMember = { fg = "#DDE5F5", bg = "#6C8ED4" },
+
+    CmpItemKindInterface = { fg = "#D8EEEB", bg = "#58B5A8" },
+    CmpItemKindColor = { fg = "#D8EEEB", bg = "#58B5A8" },
+    CmpItemKindTypeParameter = { fg = "#D8EEEB", bg = "#58B5A8" },
+}
 function catppuccin_setup()
-    cmp_highlights = {
-        CmpItemKindField = { fg = "#EED8DA", bg = "#B5585F" },
-        CmpItemKindProperty = { fg = "#EED8DA", bg = "#B5585F" },
-        CmpItemKindEvent = { fg = "#EED8DA", bg = "#B5585F" },
-
-        CmpItemKindText = { fg = "#C3E88D", bg = "#9FBD73" },
-        CmpItemKindEnum = { fg = "#C3E88D", bg = "#9FBD73" },
-        CmpItemKindKeyword = { fg = "#C3E88D", bg = "#9FBD73" },
-
-        CmpItemKindConstant = { fg = "#FFE082", bg = "#D4BB6C" },
-        CmpItemKindConstructor = { fg = "#FFE082", bg = "#D4BB6C" },
-        CmpItemKindReference = { fg = "#FFE082", bg = "#D4BB6C" },
-
-        CmpItemKindFunction = { fg = "#EADFF0", bg = "#A377BF" },
-        CmpItemKindStruct = { fg = "#EADFF0", bg = "#A377BF" },
-        CmpItemKindClass = { fg = "#EADFF0", bg = "#A377BF" },
-        CmpItemKindModule = { fg = "#EADFF0", bg = "#A377BF" },
-        CmpItemKindOperator = { fg = "#EADFF0", bg = "#A377BF" },
-
-        CmpItemKindVariable = { fg = "#C5CDD9", bg = "#7E8294" },
-        CmpItemKindFile = { fg = "#C5CDD9", bg = "#7E8294" },
-
-        CmpItemKindUnit = { fg = "#F5EBD9", bg = "#D4A959" },
-        CmpItemKindSnippet = { fg = "#F5EBD9", bg = "#D4A959" },
-        CmpItemKindFolder = { fg = "#F5EBD9", bg = "#D4A959" },
-
-        CmpItemKindMethod = { fg = "#DDE5F5", bg = "#6C8ED4" },
-        CmpItemKindValue = { fg = "#DDE5F5", bg = "#6C8ED4" },
-        CmpItemKindEnumMember = { fg = "#DDE5F5", bg = "#6C8ED4" },
-
-        CmpItemKindInterface = { fg = "#D8EEEB", bg = "#58B5A8" },
-        CmpItemKindColor = { fg = "#D8EEEB", bg = "#58B5A8" },
-        CmpItemKindTypeParameter = { fg = "#D8EEEB", bg = "#58B5A8" },
-    }
+    
     require("catppuccin").setup({
         flavour = "latte", -- latte, frappe, macchiato, mocha
         highlight_overrides = {
@@ -41,13 +45,26 @@ function catppuccin_setup()
             end,
         },
     })
-    vim.cmd.colorscheme("catppuccin")
+
+end
+
+function rosepine_setup()
+    require('rose-pine').setup({
+        variant = 'dawn',
+        highlight_groups = cmp_highlights
+    })
+    vim.cmd.colorscheme("rose-pine")
 end
 
 return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        config = catppuccin_setup
+        -- config = catppuccin_setup
+    },
+    { 
+        'rose-pine/neovim',
+        name = 'rose-pine',
+        config = rosepine_setup
     }
 }

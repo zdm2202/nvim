@@ -54,8 +54,8 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 " UI
 Plug 'folke/noice.nvim'
 Plug 'petertriho/nvim-scrollbar'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-tree.lua' [x]
+Plug 'nvim-lualine/lualine.nvim' [x]
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'glepnir/dashboard-nvim'
 
