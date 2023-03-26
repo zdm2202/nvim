@@ -14,6 +14,8 @@ end
 
 local opt = vim.opt
 
+opt.termguicolors = true
+
 opt.completeopt = "menu,menuone,noselect"
 opt.winaltkeys = "no"
 opt.autoread = true

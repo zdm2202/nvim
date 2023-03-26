@@ -78,17 +78,19 @@ function nvimscrollbar_setup()
 		}
     })
 end
-function bufferline_setup_setup()
+function bufferline_setup()
 	require("bufferline").setup{
 		highlights = require("catppuccin.groups.integrations.bufferline").get(),
 		options = {
+			
 			diagnostics = "nvim_lsp",
 			offsets = {
 				{
 					filetype = "NvimTree",
 					text = "File Explorer",
 					highlight = "Directory",
-					text_align = "left"
+					text_align = "left",
+					separator = false
 				}
 			},
 			tab_size = 10,
