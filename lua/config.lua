@@ -41,3 +41,5 @@ opt.shiftwidth = 4
 -- 编码
 opt.encoding = "utf-8"
 -- opt.foldmethod = "marker"
+
+vim.o.fillchars='eob: '

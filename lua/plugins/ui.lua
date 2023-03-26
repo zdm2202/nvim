@@ -42,16 +42,16 @@ function lualine_setup()
         sections = {
             lualine_a = {'mode'},
             lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename'},
-            lualine_x = {'encoding', 'filetype'},
-            lualine_y = {},
-            lualine_z = {'progress'}
+            lualine_c = {},
+            lualine_x = {'searchcount'},
+            lualine_y = {'encoding'},
+            lualine_z = {'filetype'}
         },
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
             lualine_c = {'filename'},
-            lualine_x = {'location'},
+            lualine_x = {},
             lualine_y = {},
             lualine_z = {}
         },
@@ -66,18 +66,44 @@ function nvimscrollbar_setup()
     require("scrollbar").setup({
         handle = {
             text = " ",
-            color = nil,
+            color = "#cecacd",
             color_nr = nil, -- cterm
             highlight = "CursorColumn",
             hide_if_all_visible = true, -- Hides handle if all lines are visible
         },
+		marks = {
+			Cursor = {
+				text = " "
+			}
+		}
     })
 end
-
+function bufferline_setup_setup()
+	require("bufferline").setup{
+		highlights = require("catppuccin.groups.integrations.bufferline").get(),
+		options = {
+			diagnostics = "nvim_lsp",
+			offsets = {
+				{
+					filetype = "NvimTree",
+					text = "File Explorer",
+					highlight = "Directory",
+					text_align = "left"
+				}
+			},
+			tab_size = 10,
+			enforce_regular_tabs = false,
+			show_buffer_close_icons = false,
+			show_close_icon = false,
+			separator_style = 'thin',	
+		},
+	}
+end
 return {
     {
         'kyazdani42/nvim-tree.lua',
-        config = nvimtree_setup
+        config = nvimtree_setup,
+		event = "VeryLazy"
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -86,5 +112,12 @@ return {
     {
         'petertriho/nvim-scrollbar',
         config = nvimscrollbar_setup
-    }
+    },
+	{
+		'akinsho/bufferline.nvim',
+		dependencies = {
+			'kyazdani42/nvim-web-devicons'
+		},
+		config = bufferline_setup
+	}
 }
