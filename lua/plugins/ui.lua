@@ -121,5 +121,10 @@ return {
 			'kyazdani42/nvim-web-devicons'
 		},
 		config = bufferline_setup
-	}
+	},
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    }
 }
