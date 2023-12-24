@@ -6,3 +6,4 @@ require('lazy').setup("plugins", {
 
 require('config')
 require('keymaps')
+require('commands')
