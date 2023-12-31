@@ -8,7 +8,8 @@ function catppuccin_setup()
             end,
         },
 		integrations = {
-			cmp = true
+			cmp = true,
+			nvimtree = true
 		}
     })
 	vim.cmd.colorscheme("catppuccin")

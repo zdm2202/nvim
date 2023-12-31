@@ -15,23 +15,31 @@ function nvimcmp_setup()
       
         { name = 'buffer' },
         { name = 'path' }
-    }),
-    snippet = {
-        expand = function(args)
-            require'luasnip'.lsp_expand(args.body)
-        end
-    },
-    formatting = {
-        format = function(entry, vim_item)
-            vim_item.menu = ({
-                })[entry.source.name]
-                vim_item.kind = ({
-                    Text          = '',
+        }),
+        snippet = {
+            expand = function(args)
+                require'luasnip'.lsp_expand(args.body)
+ 	   	end
+        },
+		 
+        window = {
+            documentation = {
+                border = 'rounded',
+                maxwidth = 50
+            }
+        },
+		formatting = {
+			format = require('lspkind').cmp_format({
+				mode = "symbol",
+				maxwidth = 50,
+				ellipsis_char = '...',
+				symbol_map = {
+                    Text          = '',
                     Method        = '',
                     Function      = '',
                     Constructor   = '',
                     Field         = '',
-                    Variable      = '',
+                    Variable      = '',
                     Class         = '',
                     Interface     = 'ﰮ',
                     Module        = '',
@@ -50,32 +58,8 @@ function nvimcmp_setup()
                     Struct        = '',
                     Event         = '',
                     Operator      = 'ﬦ',
-                    TypeParameter = '',
-                })[vim_item.kind]
-                return vim_item
-            end,
-            snippet = {
-                expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
-                end
-            },
-        },
-        window = {
-            completion = {
-                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-                col_offset = 0, -- 右移
-                side_padding = 0,
-            },
-            documentation = {
-                border = 'rounded',
-                maxwidth = 50
-            }
-        },
-		formatting = {
-			format = require('lspkind').cmp_format({
-				mode = "symbol",
-				maxwidth = 50,
-				ellipsis_char = '...',
+                    TypeParameter = '',			
+				},
 			}),
 		},
     })
@@ -85,8 +69,6 @@ function nvimcmp_setup()
 end
 
 return {
-    {"folke/neodev.nvim"},
-
     {'onsails/lspkind.nvim'},
     {'hrsh7th/cmp-path'},
     {'hrsh7th/cmp-buffer'},
