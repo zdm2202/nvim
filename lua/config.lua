@@ -33,7 +33,8 @@ opt.wrap = false -- Disable line wrap
 
 opt.sessionoptions = { "buffers", "curdir", "tabpages"}
 
-opt.pumblend=7
+opt.pumblend=10
+opt.winblend=15
 
 -- tab为4个空格
 opt.tabstop = 4 

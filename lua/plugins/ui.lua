@@ -6,9 +6,8 @@ function nvimtree_setup()
                 enable = true,
                 quit_on_focus_loss = true,
                 open_win_config = function ()
-					local HEIGHT_RATIO = 1
-					local WIDTH_RATIO = 0.45
-					local DISTENCE = 4
+					WIDTH_RATIO = 0.4
+					DISTENCE = 4
 					if vim.opt.columns:get() <= 70 then
 						HEIGHT_RATIO = 0.9
 						WIDTH_RATIO = 1
@@ -18,18 +17,16 @@ function nvimtree_setup()
 					local screen_w = vim.opt.columns:get()
                     local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
                     local window_w = screen_w * WIDTH_RATIO
-                    local window_h = screen_h * HEIGHT_RATIO
-                    local window_w_int = math.floor(window_w)
-                    local window_h_int = math.floor(window_h)
+                    local window_w_int = math.floor(window_w) - DISTENCE
+                    local window_h_int = screen_h - 2
                     local center_x = screen_w - window_w
-                    local center_y = ((vim.opt.lines:get() - window_h) / 2)
-                        - vim.opt.cmdheight:get()
+                    local center_y = 1
 					return {
-                         border = 'rounded',
+                         border = vim.g.border,
                          relative = 'editor',
                          row = center_y,
                          col = center_x,
-                         width = window_w_int - DISTENCE,
+                         width = window_w_int,
                          height = window_h_int,
 					}				
 				end
